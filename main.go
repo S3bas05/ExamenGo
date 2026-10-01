@@ -35,4 +35,55 @@ func MostrarEstadisticas() {
 		total += subtotales[i]
 	}
 
+	fmt.Printf("Total recaudado: $%2f\n", total)
+
+}
+
+func main() {
+	var opcion int
+
+	fmt.Println("--------Bienvenido al programa----------")
+	fmt.Println("1. Registrar una venta")
+	fmt.Println("2. Mostrar estadisticas")
+	fmt.Println("3. Salir")
+	fmt.Println("Seleccione una opción")
+
+	fmt.Scan(&opcion)
+
+	switch {
+	case 1:
+		var producto int
+		var cantidad int
+
+		fmt.Println("\n------ PRODUCTOS ------")
+		fmt.Println("1. Arroz  - $1.25")
+		fmt.Println("2. Leche  - $0.95")
+		fmt.Println("3. Pan    - $0.50")
+
+		fmt.Print("Seleccione un producto: ")
+		fmt.Scan(&producto)
+
+		fmt.Print("Ingrese la cantidad vendida: ")
+		fmt.Scan(&cantidad)
+
+		if cantidad <= 0 {
+			fmt.Println("La cantidad debe ser mayor a 0.")
+		}
+
+		switch producto {
+
+		case 1:
+			RegistrarVenta("Arroz", 1.25, cantidad)
+
+		case 2:
+			RegistrarVenta("Leche", 0.95, cantidad)
+
+		case 3:
+			RegistrarVenta("Pan", 0.50, cantidad)
+
+		default:
+			fmt.Println("Producto no válido.")
+		}
+	}
+
 }
